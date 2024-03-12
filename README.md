@@ -7,31 +7,34 @@ Donut Job For QBCore Framework By Sagi422
 **[qb-target](https://github.com/qbcore-framework/qb-target)**
 
 # Items Images
-![cookiedough](https://github.com/Sagi422/sp-DonutJob/assets/103905109/07523541-caa1-49a7-b1ef-2eac80d33510)
-![flour](https://github.com/Sagi422/sp-DonutJob/assets/103905109/f7cf947b-606e-46e7-8342-4fee8517ee1d)
-![sugar](https://github.com/Sagi422/sp-DonutJob/assets/103905109/d99f9643-3916-48d1-82bb-d3aaf47ebf74)
-![coffeebeans](https://github.com/Sagi422/sp-DonutJob/assets/103905109/35c9f314-8ab5-470c-942a-c674191ad303)
-![egg](https://github.com/Sagi422/sp-DonutJob/assets/103905109/a0f71795-673b-49e9-bbe3-8b917495d3fe)
-![brownsugar](https://github.com/Sagi422/sp-DonutJob/assets/103905109/9b1efd10-d1dc-40fe-a304-23ef10b4f99d)
-![pizzadough](https://github.com/Sagi422/sp-DonutJob/assets/103905109/d1a15ec8-0f0b-4fdc-9f22-a4a663fda89e)
-![donutdough](https://github.com/Sagi422/sp-DonutJob/assets/103905109/e828e7e0-1327-4c53-9120-a3c35b90b34a)
-![chocolatechips](https://github.com/Sagi422/sp-DonutJob/assets/103905109/08de2b0a-e030-490f-863f-96d147b935e6)
-![hotchocolatepowder](https://github.com/Sagi422/sp-DonutJob/assets/103905109/020f5818-485a-4089-a6b0-f26718c4f07c)
-![hotchocolate](https://github.com/Sagi422/sp-DonutJob/assets/103905109/4f34372c-d350-457f-94e6-c67363bb68d3)
-![cappuccino](https://github.com/Sagi422/sp-DonutJob/assets/103905109/7d52d9b5-7331-4d56-88f3-7da86f619134)
-![orangejuice](https://github.com/Sagi422/sp-DonutJob/assets/103905109/603338d4-7704-4a4a-9eb5-4951885dcce3)
-![fanta](https://github.com/Sagi422/sp-DonutJob/assets/103905109/c116c28b-593f-4511-a5f8-9870a8b2dbb4)
-![nestea](https://github.com/Sagi422/sp-DonutJob/assets/103905109/6d7f9eef-4a7f-451e-b877-6b3732e29263)
-![tomatosauce](https://github.com/Sagi422/sp-DonutJob/assets/103905109/9ed3e9f3-14e2-4b1d-a2f7-1e1709b8d3fd)
-![slushy](https://github.com/Sagi422/sp-DonutJob/assets/103905109/b1016c1c-b42f-4e2e-b551-a1872289b269)
-![pepperoni](https://github.com/Sagi422/sp-DonutJob/assets/103905109/45f23dce-b6f4-4296-b640-5a0e906038d8)
-![pepperonipizza](https://github.com/Sagi422/sp-DonutJob/assets/103905109/bc3d73be-06bc-43a9-a7e2-5ba90c591a08)
-![margheritapizza](https://github.com/Sagi422/sp-DonutJob/assets/103905109/435853a7-9716-4301-b3e5-6aaafd2e6fd6)
-![vanilla](https://github.com/Sagi422/sp-DonutJob/assets/103905109/aee5899e-e172-41b3-8b4a-e43445897f12)
-![sprite](https://github.com/Sagi422/sp-DonutJob/assets/103905109/584cd26a-d595-4e5b-a64a-81d9c3033b0b)
-![cocacola](https://github.com/Sagi422/sp-DonutJob/assets/103905109/a8605d34-3018-481f-af11-2087632d20bd)
-![coffee](https://github.com/Sagi422/sp-DonutJob/assets/103905109/8a5ca87e-96ef-4dd9-8ffe-fdd9209cf987)
+inside the `/images` folder drag and drop it inside `qb-invetory/html/images`
 
+# jim-payments config
+
+```
+	CustomCashRegisters = { -- Located in the config.lua
+	["donut"] = { -- Player job role restriction
+	  { coords = vector4(355.73, -1018.86, 29.4, 0), prop = true, }, -- vector4 to place the till and the way it faces
+	},
+  },
+```
+
+# Add the job to the server inside `qb-core/shared/jobs.lua`
+
+```
+	donut = {
+		label = 'Rusty Browns Donut',
+		defaultDuty = false,
+		offDutyPay = false,
+		grades = {
+			['0'] = { name = 'Trainee', payment = 50 },
+			['1'] = { name = 'Donut Maker', payment = 75 },
+			['2'] = { name = 'Donut Chef', payment = 100 },
+			['3'] = { name = 'Master Donut Chef', payment = 125 },
+			['4'] = { name = 'Donut Manager', isboss = true, payment = 150 },
+		},
+	},
+```
 
 # Add the items to your server go to `qb-core/shared/items.lua` and paste that in:
 ```
